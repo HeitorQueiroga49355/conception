@@ -5,7 +5,7 @@ content %}
 <a href="{{ url_for('post', post_id=post['id']) }}">
   <h2>{{ post['post_name'] }}</h2>
 </a>
-<span class="badge bg-primary">{{ post['owner'] }}</span>
+<span class="badge bg-primary">{{ post['author'] }}</span>
 <hr />
 <a href="{{ url_for('edit', id=post['id']) }}">
   <span class="badge bg-secondary">Edit</span>

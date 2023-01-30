@@ -46,14 +46,20 @@ def create():
     title=None
 
     if request.method == 'POST': 
-        title = request.form['title'] 
+        title = request.form['title']
+        author = request.form['author']
+        creation_date = request.form['creation_date']
+        is_reminder = request.form['is_reminder']
+        begin_date = request.form['begining_date']
+        finish_date = request.form['finishing_date']
         content = request.form['content'] 
-        owner = request.form['owner'] 
+        last_time_edited = request.form['last_time_edited']
+        priority = request.form['priority']
     if not title:
         flash('Title is required!') 
     else:
         cursor = get_connection()
-        cursor.execute('INSERT INTO posts (post_name, message, owner) VALUES (%s, %s, %s)', [title, content, owner])
+        cursor.execute('INSERT INTO posts (title, author, creation_date, is_reminder, begin_date, finish_date, content, last_time_edited, priority) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)', [title, author, creation_date, is_reminder, begin_date, finish_date, content, last_time_edited, priority])
         mysql.connection.commit()
         cursor.close()
         flash('Created Post') 
@@ -63,17 +69,23 @@ def create():
 @app.route('/<int:id>/edit', methods=['GET', 'POST'])
 def edit(id):
     title=None
-    post = get_post(id) # Pega o post referente
+    post = get_post(id)
     
     if request.method == 'POST':
         title = request.form['title']
-        content = request.form['content']
-        owner = request.form['owner']
+        author = request.form['author']
+        creation_date = request.form['creation_date']
+        is_reminder = request.form['is_reminder']
+        begin_date = request.form['begining_date']
+        finish_date = request.form['finishing_date']
+        content = request.form['content'] 
+        last_time_edited = request.form['last_time_edited']
+        priority = request.form['priority']
     if not title:
         flash('Title is required!')
     else:
         cursor = get_connection()
-        cursor.execute('UPDATE posts SET post_name = %s, message = %s, owner = %s WHERE id = %s',[title, content, owner, id])
+        cursor.execute('UPDATE posts SET title = %s, author = %s, creation_date = %s, is_reminder = %s, begining_date = %s, finishing_date = %s, content = %s, last_time_edited = %s, priority = %s WHERE id = %s',[title, author, creation_date, is_reminder, begin_date, finish_date, content, last_time_edited, priority, id])
         mysql.connection.commit()
         cursor.close()
         flash('Edited Post')
