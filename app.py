@@ -46,20 +46,20 @@ def create():
     title=None
 
     if request.method == 'POST': 
-        title = request.form['title']
-        author = request.form['author']
-        creation_date = request.form['creation_date']
-        is_reminder = request.form['is_reminder']
-        begin_date = request.form['begining_date']
-        finish_date = request.form['finishing_date']
-        content = request.form['content'] 
-        last_time_edited = request.form['last_time_edited']
-        priority = request.form['priority']
+        title = request.form['title'] #
+        author = request.form['author'] #
+        creation_date = request.form['creation_date'] ##
+        is_reminder = request.form['is_reminder'] #
+        begin_date = request.form['begin_date'] #
+        finish_date = request.form['finishing_date'] #
+        content = request.form['content'] # 
+        last_time_edited = request.form['last_time_edited'] ##
+        priority = request.form['priority'] #
     if not title:
         flash('Title is required!') 
     else:
         cursor = get_connection()
-        cursor.execute('INSERT INTO posts (title, author, creation_date, is_reminder, begin_date, finish_date, content, last_time_edited, priority) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)', [title, author, creation_date, is_reminder, begin_date, finish_date, content, last_time_edited, priority])
+        cursor.execute('INSERT INTO posts (title, author, creation_date, is_reminder, begining_date, finishing_date, content, last_time_edited, priority) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)', [title, author, creation_date, is_reminder, begin_date, finish_date, content, last_time_edited, priority])
         mysql.connection.commit()
         cursor.close()
         flash('Created Post') 
@@ -92,7 +92,7 @@ def edit(id):
         return redirect(url_for('index'))
     return render_template('edit.html', post=post)
 
-@app.route('/<int:id>/delete', methods=('POST',))
+@app.route('/<int:id>/delete', methods=['POST'])
 def delete(id):
     post = get_post(id)
     cursor = get_connection()

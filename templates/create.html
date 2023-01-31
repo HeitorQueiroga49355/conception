@@ -14,6 +14,72 @@
   </div>
 
   <div class="form-group">
+    <label for="priority">Priority</label>
+    <input
+      type="text"
+      name="priority"
+      placeholder="Post priority"
+      class="form-control"
+      value="{{ request.form['priority'] }}"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="begining_date">Begining date</label>
+    <input
+      type="text"
+      name="begin_date"
+      placeholder="Post begining_date"
+      class="form-control"
+      value="{{ request.form['begin_date'] }}"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="finishing_date">Finishing date</label>
+    <input
+      type="text"
+      name="finishing_date"
+      placeholder="Post finishing_date"
+      class="form-control"
+      value="{{ request.form['finishing_date'] }}"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="is_reminder">Is reminder?</label>
+    <input
+      type="checkbox"
+      name="is_reminder"
+      placeholder="Post is_reminder"
+      class="form-control"
+      value="{{ request.form['is_reminder'] }}"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="creation_date">Creation date</label>
+    <input
+      type="text"
+      name="creation_date"
+      placeholder="Post creation_date"
+      class="form-control"
+      value="{{ request.form['creation_date'] }}"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="last_time_edited">Last time edited</label>
+    <input
+      type="text"
+      name="last_time_edited"
+      placeholder="Post last_time_edited"
+      class="form-control"
+      value="{{ request.form['last_time_edited'] }}"
+    />
+  </div>
+
+  <div class="form-group">
     <label for="content">Content</label>
     <textarea name="content" placeholder="Post content" class="form-control">
 {{ request.form['content'] }}
