@@ -5,6 +5,12 @@ from werkzeug.exceptions import abort
 
 app = Flask(__name__)
 
+# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = 'Tms.142226'
+# app.config['MYSQL_DB'] = 'PABD_Projeto'
+# app.config['SECRET_KEY'] = '04130211'
+
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
@@ -59,7 +65,8 @@ def create():
         flash('Title is required!') 
     else:
         cursor = get_connection()
-        cursor.execute('INSERT INTO posts (title, author, creation_date, is_reminder, begining_date, finishing_date, content, last_time_edited, priority) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)', [title, author, creation_date, is_reminder, begin_date, finish_date, content, last_time_edited, priority])
+        # print([title, author, creation_date, is_reminder, begin_date, finish_date, content, last_time_edited, priority, id])
+        cursor.execute('INSERT INTO posts (title, author, creation_date, is_reminder, begining_date, finishing_date, content, last_time_edited, priority) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)', [title, author, creation_date, bool(is_reminder), begin_date, finish_date, content, last_time_edited, priority])
         mysql.connection.commit()
         cursor.close()
         flash('Created Post') 
@@ -85,7 +92,7 @@ def edit(id):
         flash('Title is required!')
     else:
         cursor = get_connection()
-        cursor.execute('UPDATE posts SET title = %s, author = %s, creation_date = %s, is_reminder = %s, begining_date = %s, finishing_date = %s, content = %s, last_time_edited = %s, priority = %s WHERE id = %s',[title, author, creation_date, is_reminder, begin_date, finish_date, content, last_time_edited, priority, id])
+        cursor.execute('UPDATE posts SET title = %s, author = %s, creation_date = %s, is_reminder = %s, begining_date = %s, finishing_date = %s, content = %s, last_time_edited = %s, priority = %s WHERE id = %s',[title, author, creation_date, bool(is_reminder), begin_date, finish_date, content, last_time_edited, priority, id])
         mysql.connection.commit()
         cursor.close()
         flash('Edited Post')
@@ -99,5 +106,5 @@ def delete(id):
     cursor.execute('DELETE FROM posts WHERE id = %s', [id])
     mysql.connection.commit()
     cursor.close()
-    flash("{} was successfully deleted!".format(post['post_name']))
+    flash("{} was successfully deleted!".format(post['title']))
     return redirect(url_for('index'))
