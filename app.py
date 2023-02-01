@@ -55,7 +55,6 @@ def create():
         title = request.form['title'] #
         author = request.form['author'] #
         creation_date = request.form['creation_date'] ##
-        is_reminder = request.form['is_reminder'] #
         begin_date = request.form['begin_date'] #
         finish_date = request.form['finishing_date'] #
         content = request.form['content'] # 
@@ -66,7 +65,7 @@ def create():
     else:
         cursor = get_connection()
         # print([title, author, creation_date, is_reminder, begin_date, finish_date, content, last_time_edited, priority, id])
-        cursor.execute('INSERT INTO posts (title, author, creation_date, is_reminder, begining_date, finishing_date, content, last_time_edited, priority) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)', [title, author, creation_date, bool(is_reminder), begin_date, finish_date, content, last_time_edited, priority])
+        cursor.execute('INSERT INTO posts (title, author, creation_date, begining_date, finishing_date, content, last_time_edited, priority) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', [title, author, creation_date, begin_date, finish_date, content, last_time_edited, priority])
         mysql.connection.commit()
         cursor.close()
         flash('Created Post') 
@@ -82,7 +81,6 @@ def edit(id):
         title = request.form['title']
         author = request.form['author']
         creation_date = request.form['creation_date']
-        is_reminder = request.form['is_reminder']
         begin_date = request.form['begining_date']
         finish_date = request.form['finishing_date']
         content = request.form['content'] 
@@ -92,7 +90,7 @@ def edit(id):
         flash('Title is required!')
     else:
         cursor = get_connection()
-        cursor.execute('UPDATE posts SET title = %s, author = %s, creation_date = %s, is_reminder = %s, begining_date = %s, finishing_date = %s, content = %s, last_time_edited = %s, priority = %s WHERE id = %s',[title, author, creation_date, bool(is_reminder), begin_date, finish_date, content, last_time_edited, priority, id])
+        cursor.execute('UPDATE posts SET title = %s, author = %s, creation_date = %s, begining_date = %s, finishing_date = %s, content = %s, last_time_edited = %s, priority = %s WHERE id = %s',[title, author, creation_date, begin_date, finish_date, content, last_time_edited, priority, id])
         mysql.connection.commit()
         cursor.close()
         flash('Edited Post')
