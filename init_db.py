@@ -1,14 +1,14 @@
 import mysql.connector
 
-# conn = mysql.connector.connect(user='root',
-#                                 password='',
-#                                 host='localhost',
-#                                 port='3306')
-
 conn = mysql.connector.connect(user='root',
-                                password='Tms.142226',
+                                password='',
                                 host='localhost',
                                 port='3306')
+
+# conn = mysql.connector.connect(user='root',
+#                                 password='Tms.142226',
+#                                 host='localhost',
+#                                 port='3306')
 
 cursor = conn.cursor()
 

@@ -5,17 +5,17 @@ from werkzeug.exceptions import abort
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Tms.142226'
-app.config['MYSQL_DB'] = 'PABD_Projeto'
-app.config['SECRET_KEY'] = '04130211'
-
 # app.config['MYSQL_HOST'] = 'localhost'
 # app.config['MYSQL_USER'] = 'root'
-# app.config['MYSQL_PASSWORD'] = ''
+# app.config['MYSQL_PASSWORD'] = 'Tms.142226'
 # app.config['MYSQL_DB'] = 'PABD_Projeto'
 # app.config['SECRET_KEY'] = '04130211'
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'PABD_Projeto'
+app.config['SECRET_KEY'] = '04130211'
 
 mysql = MySQL(app)
 
