@@ -1,13 +1,24 @@
 {% extends 'base.html' %} {% block title %} Primeiro App {% endblock %} {% block
 content %}
-<h1>Bem vindo ao nosso primeiro app</h1>
-{% for post in posts %}
-<a href="{{ url_for('post', post_id=post['id']) }}">
-  <h2>{{ post['title'] }}</h2>
-</a>
-<span class="badge bg-primary">{{ post['author'] }}</span>
-<hr />
-<a href="{{ url_for('edit', id=post['id']) }}">
-  <span class="badge bg-secondary">Edit</span>
-</a>
-{% endfor %} {% endblock %}
+
+<!-- <div class="title">
+  <h1>Bem vindo ao nosso bloco de notas</h1>
+</div> -->
+<div class="flex">
+  {% for post in posts %}
+  <!-- <div class="flex"> -->
+    <section class="card-content">
+      <div class="card">
+        <a href="{{ url_for('post', post_id=post['id']) }}">
+          <h2>{{ post['title'] }}</h2>
+        </a>
+        <span class="badge bg-primary">{{ post['author'] }}</span>
+        <hr />
+        <a href="{{ url_for('edit', id=post['id']) }}">
+          <span class="badge bg-secondary">Edit</span>
+        </a>
+      </div>
+    </section>
+  <!-- </div> -->
+  {% endfor %} {% endblock %}
+</div>

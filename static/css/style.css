@@ -1,6 +1,88 @@
-h1 {
-    border: 2px #eee solid;
-    color: blue;
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 16px;
+    color: white;
+    background-color: #121214;
+    font-family: 'Poppins', sans-serif;
+}
+.navbar > h1{
+    font-size: 2em;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.navbar, .navbar-nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
+}
+
+.card{
+    width: 20em;
+}
+.navbar{
+    justify-content: space-between;
+}
+ul{
+    column-gap: 8px;
+    list-style-type: none;
+}
+span{
+    color: white;
+}
+.form-create, .form-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.form-group{
+    align-items: flex-start;
+}
+input:not(textarea), .btn{
+    height: 2.6em;
+}
+input, textarea{
+    width: 30em;
+    border-radius: 4px;
+    outline: 0;
+    color: #7C7C8A;
+    background-color: #202024;
+    font-size: 1.2em;
+    padding-left: 10px;
+    border: 1px solid #61DAFB;
+}
+textarea{
+    padding-top: 10px;
+    height: auto;
+}
+.btn{
+    margin: 2em 0em;
+    width: 30em;
+    border-radius: 4px;
+    font-weight:700;
+    background-color: #61DAFB;
+    color: #202024;
+    font-size: 1.2em;
+}
+.container h1{
     text-align: center;
-    padding: 10px;    
+}
+.form-create{
+    margin: auto;
+    width: 60%;
+}
+label{
+    font-size: 1.5em;
+}
+.flex{
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    margin-top: 3em;
 }
