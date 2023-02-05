@@ -23,7 +23,14 @@ a{
 }
 
 .card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     width: 20em;
+    border: 1px solid #61DAFB;
+    border-radius: 6px;
+    padding: 1em;
 }
 .navbar{
     justify-content: space-between;
@@ -55,7 +62,10 @@ input, textarea{
     background-color: #202024;
     font-size: 1.2em;
     padding-left: 10px;
-    border: 1px solid #61DAFB;
+    border: 2px solid #1d1d14;
+}
+input:focus, textarea:focus{
+    border: 2px solid #61DAFB;
 }
 textarea{
     padding-top: 10px;
@@ -81,8 +91,49 @@ label{
     font-size: 1.5em;
 }
 .flex{
-    justify-content: space-evenly;
+    justify-content:space-evenly;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 3em;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+.card > span{
+    font-weight: 600;
+}
+.card-content{
+    background-color: #202024;
+}
+hr{
+    color: white;
+    width: 100%;
+}
+.card h2{
+    padding: 6px 0;
+}
+.card > p, hr{
+    margin-bottom: 0.6em;
+}
+.btn-danger{
+    background-color: #dc3545;
+    color: white;
+    margin-top: 0;
+}
+.alert{
+    padding-left: 0.5em;
+}
+.note, .members{
+    width: 20%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 2em 0em 0em 2em;
+    border: 1px solid #61DAFB;
+    padding: 1em;
+    border-radius: 0.6em;
+}
+.members{
+    background-color: #202024;
+    row-gap: 0.5em;
 }

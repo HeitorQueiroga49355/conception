@@ -1,6 +1,11 @@
-{% extends 'base.html' %} {% block content %}
-<h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
+{% extends 'base.html' %}
 
-<span class="badge bg-primary">{{ post['author'] }}</span>
-<p>{{ post['content'] }}</p>
-{% endblock %}
+<!-- <div style="display: flex;align-items: center;justify-content: center; width: 100vw;"> -->
+    {% block content %}
+    <section class="note">
+        <h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
+    <span class="badge bg-primary">{{ post['author'] }}</span>
+    <p>{{ post['content'] }}</p>
+    {% endblock %}
+    <!-- </section> -->
+</div>

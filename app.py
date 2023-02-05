@@ -5,17 +5,17 @@ from werkzeug.exceptions import abort
 
 app = Flask(__name__)
 
-# app.config['MYSQL_HOST'] = 'localhost'
-# app.config['MYSQL_USER'] = 'root'
-# app.config['MYSQL_PASSWORD'] = 'Tms.142226'
-# app.config['MYSQL_DB'] = 'PABD_Projeto'
-# app.config['SECRET_KEY'] = '04130211'
-
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_PASSWORD'] = 'Tms.142226'
 app.config['MYSQL_DB'] = 'PABD_Projeto'
 app.config['SECRET_KEY'] = '04130211'
+
+# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = ''
+# app.config['MYSQL_DB'] = 'PABD_Projeto'
+# app.config['SECRET_KEY'] = '04130211'
 
 mysql = MySQL(app)
 
@@ -46,6 +46,10 @@ def get_post(post_id):
 def post(post_id):
     post = get_post(post_id)
     return render_template('item.html', post=post)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/create', methods=['GET', 'POST'])
 def create():

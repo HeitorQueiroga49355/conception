@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block title %} Primeiro App {% endblock %} {% block
 content %}
-
+<h1>Welcome to Conception</h1>
 <!-- <div class="title">
   <h1>Bem vindo ao nosso bloco de notas</h1>
 </div> -->
@@ -9,11 +9,13 @@ content %}
   <!-- <div class="flex"> -->
     <section class="card-content">
       <div class="card">
+        <span class="badge bg-primary">{{ post['author'] }}</span>
         <a href="{{ url_for('post', post_id=post['id']) }}">
           <h2>{{ post['title'] }}</h2>
         </a>
-        <span class="badge bg-primary">{{ post['author'] }}</span>
-        <hr />
+        <!-- <span class="badge bg-primary">{{ post['author'] }}</span> -->
+        <p>{{ post['content'] }}</p>
+        <hr/>
         <a href="{{ url_for('edit', id=post['id']) }}">
           <span class="badge bg-secondary">Edit</span>
         </a>
