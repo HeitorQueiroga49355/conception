@@ -70,7 +70,7 @@
 
   <div class="form-group">
     <label for="content">Content</label>
-    <textarea name="content" placeholder="Post content" class="form-control">
+    <textarea name="content" style="height: 400px; resize: none;" placeholder="Post content" class="form-control">
       {{ request.form['content'] or post['content'] }}
     </textarea>
   </div>
@@ -101,4 +101,16 @@
     onclick="return confirm('Are you sure you want to delete this post?')"
   />
 </form>
+
+<script>
+  window.addEventListener('onload', getData('last_time_edited'))
+
+  function getData(name) {
+    const input = document.getElementsByName(name)[0].value
+    const data = new Date()
+    console.log(input)  
+    console.log(data)
+    document.getElementsByName(name)[0].value = `${data.getDay() + 1} / ${data.getMonth() + 1} / ${data.getFullYear()}`
+  }
+</script>
 {% endblock %}

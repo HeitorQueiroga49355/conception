@@ -47,10 +47,6 @@ def post(post_id):
     post = get_post(post_id)
     return render_template('item.html', post=post)
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
 @app.route('/create', methods=['GET', 'POST'])
 def create():
     title=None
@@ -110,3 +106,7 @@ def delete(id):
     cursor.close()
     flash("{} was successfully deleted!".format(post['title']))
     return redirect(url_for('index'))
+
+@app.route('/about')
+def about():
+    return render_template('about.html')

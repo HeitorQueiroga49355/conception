@@ -5,7 +5,18 @@
     <section class="note">
         <h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
     <span class="badge bg-primary">{{ post['author'] }}</span>
-    <p>{{ post['content'] }}</p>
+    <div class="note-div">
+        <p>Prioridade: {{ post['priority'] }}</p>
+        <p>Última vez editado: {{ post['last_time_edited'] }}</p>
+    </div>
+
+    <div class="note-div">
+        <p>Data de criação: {{ post['creation_date'] }}</p>
+        <p>Data de início: {{ post['begining_date'] }}</p>
+        <p>Data de finalização: {{ post['finishing_date'] }}</p>
+    </div>
+
+    <p class="note-content">{{ post['content'] }}</p>
     {% endblock %}
     <!-- </section> -->
 </div>
