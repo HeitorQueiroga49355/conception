@@ -12,6 +12,13 @@ body{
     padding: 6px;
     font-size: 2em;
 }
+
+nav {
+    height: 100px;
+
+    border-bottom: #fff solid 1px;
+}
+
 a{
     color: white;
     text-decoration: none;
@@ -157,4 +164,19 @@ hr{
 .members{
     background-color: #202024;
     row-gap: 0.5em;
+}
+
+.img-logo {
+    width: 100px;
+    height: 100px;
+
+    filter: invert(1);
+}
+
+.nav-item {
+    background-color: #454545;
+
+    border-radius: 4px;
+
+    padding: 8px;
 }
