@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 <h1>{% block title %} Create a New Post {% endblock %}</h1>
-<script>
-  function interceptSubmit(event) {
-    event.preventDefault();
-    alert("ok2");
-  }
-</script>
-<form onsubmit="interceptSubmit" method="post" class="form-create">
+<script></script>
+<form
+  onsubmit="interceptSubmit"
+  method="post"
+  class="form-create"
+  id="main-form"
+>
   <div class="form-group">
     <label for="title">Title</label>
     <input
@@ -78,7 +78,8 @@
       name="last_time_edited"
       placeholder="Post last_time_edited"
       class="form-control"
-      id=""
+      value="{{ request.form['last_time_edited'] }}"
+      id="last_time_edited"
     />
   </div>
 
@@ -107,9 +108,7 @@
   </div>
 
   <div class="form-group">
-    <button type="submit" onclick="interceptSubmit" class="btn btn-primary">
-      Submit
-    </button>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
 
@@ -117,13 +116,28 @@
   window.addEventListener("onload", getData("last_time_edited"));
 
   function getData(name) {
-    const input = document.getElementsByName(name)[0].value;
+    const input = document.getElementById(name);
     const data = new Date();
     console.log(input);
     console.log(data);
-    document.getElementsByName(name)[0].value = `${data.getDay() + 1} / ${
-      data.getMonth() + 1
-    } / ${data.getFullYear()}`;
+    document.getElementById(name).value = `${
+      data.getDay().toString().length < 2
+        ? "0" + (data.getDay() + 1)
+        : data.getDay() + 1
+    }/${data.getMonth().toString().length < 2
+      ? "0" + (data.getMonth() + 1)
+      : data.getMonth() + 1}/${data.getFullYear()}`;
   }
+
+  /*const form = document.getElementById('main-form')
+  form.onsubmit = () => {
+    const finishingDate = document.getElementById('input_finishing_date')
+    const lastTimeEdited = document.getElementById('input-last_time_edited')
+    finishingDate.value = new Date()
+    lastTimeEdited.value = new Date()
+
+    for(let i = 0; i < 1000000000; i++){}
+    alert()
+  }*/
 </script>
 {% endblock %}
