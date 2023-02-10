@@ -27,7 +27,7 @@
   <div class="form-group">
     <label for="begining_date">Begining date</label>
     <input
-      type="text"
+      type="date"
       name="begining_date"
       placeholder="Post begining_date"
       class="form-control"
@@ -38,7 +38,7 @@
   <div class="form-group">
     <label for="finishing_date">Finishing date</label>
     <input
-      type="text"
+      type="date"
       name="finishing_date"
       placeholder="Post finishing_date"
       class="form-control"
@@ -49,7 +49,7 @@
   <div class="form-group">
     <label for="creation_date">Creation date</label>
     <input
-      type="text"
+      type="date"
       name="creation_date"
       placeholder="Post creation_date"
       class="form-control"
@@ -60,7 +60,7 @@
   <div class="form-group">
     <label for="last_time_edited">Last time edited</label>
     <input
-      type="text"
+      type="date"
       name="last_time_edited"
       placeholder="Post last_time_edited"
       class="form-control"
@@ -93,14 +93,14 @@
 
 <!-- <hr/ style="width: auto;"> -->
 
-<form action="{{ url_for('delete', id=post['id']) }}" method="POST" class="form-create">
+<!-- <form action="{{ url_for('delete', id=post['id']) }}" method="POST" class="form-create">
   <input
     type="submit"
     value="Delete Post"
     class="btn btn-danger btn-sm"
     onclick="return confirm('Are you sure you want to delete this post?')"
   />
-</form>
+</form> -->
 
 <script>
   window.addEventListener('onload', getData('last_time_edited'))
