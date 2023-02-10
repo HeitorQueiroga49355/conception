@@ -180,3 +180,7 @@ hr{
 
     padding: 8px;
 }
+
+.hidden {
+    display: none;
+}

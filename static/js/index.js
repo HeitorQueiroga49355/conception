@@ -1,0 +1,3 @@
+function interceptSubmit() {
+    alert('ok')
+}

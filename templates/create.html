@@ -1,52 +1,65 @@
 {% extends 'base.html' %} {% block content %}
 <h1>{% block title %} Create a New Post {% endblock %}</h1>
-
-<form method="post" class="form-create">
+<script>
+  function interceptSubmit(event) {
+    event.preventDefault();
+    alert("ok2");
+  }
+</script>
+<form onsubmit="interceptSubmit" method="post" class="form-create">
   <div class="form-group">
     <label for="title">Title</label>
     <input
+      required
       type="text"
       name="title"
       placeholder="Post title"
       class="form-control"
       value="{{ request.form['title'] }}"
+      id="input-title"
     />
   </div>
 
   <div class="form-group">
     <label for="priority">Priority</label>
     <input
-      type="text"
+      required
+      type="number"
       name="priority"
       placeholder="Post priority"
       class="form-control"
       value="{{ request.form['priority'] }}"
+      id="input-priority"
     />
   </div>
 
   <div class="form-group">
     <label for="begining_date">Begining date</label>
     <input
+      required
       type="date"
       name="begin_date"
       placeholder="Post begining_date"
       class="form-control"
       value="{{ request.form['begin_date'] }}"
+      id="input_begin_date"
     />
   </div>
 
   <div class="form-group">
     <label for="finishing_date">Finishing date</label>
     <input
+      required
       type="date"
       name="finishing_date"
       placeholder="Post finishing_date"
       class="form-control"
       value="{{ request.form['finishing_date'] }}"
+      id="input_finishing_date"
     />
   </div>
 
-  <div class="form-group">
+  <div class="form-group hidden">
     <label for="creation_date">Creation date</label>
     <input
       type="date"
@@ -54,22 +67,29 @@
       placeholder="Post creation_date"
       class="form-control"
       value="{{ request.form['creation_date'] }}"
+      id="input_finishing_date"
     />
   </div>
 
-  <div class="form-group">
+  <div class="form-group hidden">
     <label for="last_time_edited">Last time edited</label>
     <input
       type="date"
       name="last_time_edited"
       placeholder="Post last_time_edited"
       class="form-control"
+      id=""
     />
   </div>
 
   <div class="form-group">
     <label for="content">Content</label>
-    <textarea name="content" style="height: 400px; resize: none;" placeholder="Post content" class="form-control">
+    <textarea
+      name="content"
+      style="height: 400px; resize: none"
+      placeholder="Post content"
+      class="form-control"
+    >
       {{ request.form['content'] }}
     </textarea>
   </div>
@@ -77,6 +97,7 @@
   <div class="form-group">
     <label for="title">Owner</label>
     <input
+      required
       type="text"
       name="author"
       placeholder="Owner"
@@ -86,19 +107,23 @@
   </div>
 
   <div class="form-group">
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" onclick="interceptSubmit" class="btn btn-primary">
+      Submit
+    </button>
   </div>
 </form>
 
 <script>
-  window.addEventListener('onload', getData('last_time_edited'))
+  window.addEventListener("onload", getData("last_time_edited"));
 
   function getData(name) {
-    const input = document.getElementsByName(name)[0].value
-    const data = new Date()
-    console.log(input)  
-    console.log(data)
-    document.getElementsByName(name)[0].value = `${data.getDay() + 1} / ${data.getMonth() + 1} / ${data.getFullYear()}`
+    const input = document.getElementsByName(name)[0].value;
+    const data = new Date();
+    console.log(input);
+    console.log(data);
+    document.getElementsByName(name)[0].value = `${data.getDay() + 1} / ${
+      data.getMonth() + 1
+    } / ${data.getFullYear()}`;
   }
 </script>
 {% endblock %}
