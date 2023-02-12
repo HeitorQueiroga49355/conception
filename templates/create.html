@@ -111,33 +111,4 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
-
-<script>
-  window.addEventListener("onload", getData("last_time_edited"));
-
-  function getData(name) {
-    const input = document.getElementById(name);
-    const data = new Date();
-    console.log(input);
-    console.log(data);
-    document.getElementById(name).value = `${
-      data.getDay().toString().length < 2
-        ? "0" + (data.getDay() + 1)
-        : data.getDay() + 1
-    }/${data.getMonth().toString().length < 2
-      ? "0" + (data.getMonth() + 1)
-      : data.getMonth() + 1}/${data.getFullYear()}`;
-  }
-
-  /*const form = document.getElementById('main-form')
-  form.onsubmit = () => {
-    const finishingDate = document.getElementById('input_finishing_date')
-    const lastTimeEdited = document.getElementById('input-last_time_edited')
-    finishingDate.value = new Date()
-    lastTimeEdited.value = new Date()
-
-    for(let i = 0; i < 1000000000; i++){}
-    alert()
-  }*/
-</script>
 {% endblock %}
