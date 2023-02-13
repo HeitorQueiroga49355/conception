@@ -68,13 +68,16 @@ def create():
         flash('Title is required!') 
     else:
         cursor = get_connection()
-        # print([title, author, creation_date, is_reminder, begin_date, finish_date, content, last_time_edited, priority, id])
         cursor.execute('INSERT INTO posts (title, author, creation_date, begining_date, finishing_date, content, last_time_edited, priority) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', [title, author, creation_date, begin_date, finish_date, content, last_time_edited, priority])
         mysql.connection.commit()
         cursor.close()
         flash('Created Post') 
         return redirect(url_for('index'))
     return render_template('create.html')
+
+@app.errorhandler(404)
+def erro(e):
+    return render_template('404.html'), 404
 
 @app.route('/<int:id>/edit', methods=['GET', 'POST'])
 def edit(id):
