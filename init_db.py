@@ -5,11 +5,6 @@ conn = mysql.connector.connect(user='root',
                                 host='localhost',
                                 port='3306')
 
-# conn = mysql.connector.connect(user='root',
-#                                 password='Tms.142226',
-#                                 host='localhost',
-#                                 port='3306')
-
 cursor = conn.cursor()
 
 cursor.execute('CREATE DATABASE PABD_Projeto;')
