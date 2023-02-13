@@ -28,6 +28,8 @@ a{
     align-items: center;
     justify-content: flex-start;
     padding: 5px;
+
+    list-style: none;
 }
 
 .card{
@@ -45,8 +47,10 @@ a{
 }
 ul{
     column-gap: 8px;
-    list-style-type: none;
 }
+
+
+
 span{
     font-weight: 600;
     color: white;
@@ -183,4 +187,8 @@ hr{
 
 .hidden {
     display: none;
+}
+
+li {
+    margin: 0 0 0 16px;
 }
